@@ -192,12 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const subject = encodeURIComponent(`פנייה חדשה מדף הנחיתה: ${name}`);
         
         let bodyContent = `שלום יהודית,\n\n`;
-        bodyContent += `התקבלה פנייה חדשה מדף הנחיתה של סדנת "יצירה חדה":\n\n`;
-        bodyContent += `👤 שם מלא / שם הקייטנה: ${name}\n`;
-        bodyContent += `📞 טלפון לחזרה: ${phone}\n`;
-        if (email) bodyContent += `✉️ כתובת אימייל: ${email}\n`;
-        if (message) bodyContent += `💬 הודעה / בקשות מיוחדות:\n${message}\n\n`;
-        bodyContent += `--- נשלח מדף הנחיתה של יצירה חדה ---`;
+        bodyContent += `התקבלה פנייה חדשה מדף הנחיתה של סדנת "יצירה בתיק":\n\n`;
+        bodyContent += `שם מלא / שם הקייטנה: ${name}\n`;
+        bodyContent += `טלפון לחזרה: ${phone}\n`;
+        if (email) bodyContent += `כתובת אימייל: ${email}\n`;
+        if (message) bodyContent += `הודעה / בקשות מיוחדות:\n${message}\n\n`;
+        bodyContent += `--- נשלח מדף הנחיתה של יצירה בתיק ---`;
         
         const body = encodeURIComponent(bodyContent);
         
