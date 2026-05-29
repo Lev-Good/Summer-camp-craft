@@ -259,19 +259,6 @@ button {
     animation: pulse 2s infinite;
 }
 
-/* Sun Rotation */
-.icon-sun {
-    color: #f59e0b;
-    display: inline-block;
-    animation: spin-slow 12s linear infinite;
-}
-
-@keyframes spin-slow {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 /* Phone Wiggle */
 @keyframes phone-wiggle {
     0%, 100% { transform: rotate(0deg); }
@@ -287,16 +274,76 @@ button {
     animation: phone-wiggle 1s ease-in-out infinite;
 }
 
-/* Wand Sparkle */
-@keyframes wand-sparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    50% { transform: scale(1.2) rotate(15deg); opacity: 0.8; }
+/* Custom 3D Icons Styling & Animations */
+.icon-3d {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 4px 8px rgba(225, 29, 72, 0.15));
+    will-change: transform, filter;
+    vertical-align: middle;
 }
 
-.icon-wand-sparkle {
-    display: inline-block;
-    color: #e11d48;
-    animation: wand-sparkle 2s ease-in-out infinite;
+/* 3D Hover perspective rotations */
+.icon-3d:hover {
+    transform: perspective(600px) translateZ(15px) rotateY(15deg) rotateX(10deg) scale(1.15);
+    filter: drop-shadow(0 15px 25px rgba(225, 29, 72, 0.25));
+}
+
+/* Logo 3D Icon styling */
+.logo-3d {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 2px;
+}
+
+.logo:hover .logo-3d {
+    animation: wobble-3d 1s ease-in-out;
+}
+
+@keyframes wobble-3d {
+    0%, 100% { transform: rotate(0deg); }
+    15% { transform: rotate(-10deg) scale(1.1); }
+    30% { transform: rotate(10deg) scale(1.1); }
+    45% { transform: rotate(-5deg) scale(1.1); }
+    60% { transform: rotate(5deg) scale(1.1); }
+    75% { transform: rotate(-2deg) scale(1.1); }
+}
+
+/* Hero Tagline Sun 3D Icon */
+.icon-sun-3d {
+    width: 28px;
+    height: 28px;
+    margin-left: 8px;
+    animation: spin-3d 20s linear infinite;
+}
+
+@keyframes spin-3d {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.tagline:hover .icon-sun-3d {
+    transform: scale(1.2) rotate(360deg);
+    filter: drop-shadow(0 8px 16px rgba(245, 158, 11, 0.4));
+}
+
+/* Hero Badge Magic Wand 3D Icon */
+.icon-wand-3d {
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+    animation: float-3d 3s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px) rotate(5deg); }
+}
+
+.image-badge:hover .icon-wand-3d {
+    transform: scale(1.25) rotate(-15deg) translateZ(10px);
+    filter: drop-shadow(0 10px 20px rgba(225, 29, 72, 0.4));
 }
 
 /* Animated Floating Background Blobs */
@@ -726,10 +773,13 @@ button {
 }
 
 .feature-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: rgba(234, 88, 12, 0.08);
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(241, 231, 216, 0.6);
+    box-shadow: 0 4px 10px rgba(234, 88, 12, 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -738,18 +788,22 @@ button {
 }
 
 .feature-card:hover .feature-icon {
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(225, 29, 72, 0.08);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.1);
+    border-color: rgba(225, 29, 72, 0.2);
 }
 
-.feature-card:hover .feature-icon i {
-    color: var(--primary);
+/* Feature Cards 3D Icon styling */
+.feature-3d {
+    width: 44px;
+    height: 44px;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.feature-icon i {
-    font-size: 1.5rem;
-    color: var(--secondary);
-    transition: var(--transition-smooth);
+.feature-card:hover .feature-3d {
+    transform: perspective(600px) translateZ(20px) rotateY(-15deg) rotateX(12deg) scale(1.25);
+    filter: drop-shadow(0 12px 24px rgba(234, 88, 12, 0.35));
 }
 
 .feature-title {
